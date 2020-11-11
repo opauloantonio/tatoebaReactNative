@@ -35,7 +35,12 @@ function HomeTab() {
         }} 
       />
 
-      <HomeStack.Screen name="SearchResults" component={SearchResults} />
+      <HomeStack.Screen 
+        name="SearchResults" component={SearchResults} 
+        options={{
+          headerTitle: "Results",
+        }}
+      />
     </HomeStack.Navigator>
   )
 }
