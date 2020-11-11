@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Keyboard } from 'react-native';
 
 import { Button, Searchbar, Text, Divider } from 'react-native-paper';
 
@@ -20,6 +20,7 @@ const Home = props => {
       return;
     }
 
+    Keyboard.dismiss();
     props.navigation.navigate("SearchResults", { from, to, text: searchText });
   }
 
@@ -51,7 +52,10 @@ const Home = props => {
 
       <View style={{...styles.container, flexDirection: "row"}}>
         <TouchableOpacity 
-          onPress={() => props.navigation.navigate("ChooseLanguage", {target: "from"})} 
+          onPress={() => {
+            Keyboard.dismiss();
+            props.navigation.navigate("ChooseLanguage", {target: "from"});
+          }} 
           style={styles.languageChoiceWrapper}
         >
           <Text style={styles.languageChoice}>
@@ -66,7 +70,10 @@ const Home = props => {
         </TouchableOpacity>
         
         <TouchableOpacity 
-          onPress={() => props.navigation.navigate("ChooseLanguage", {target: "to"})} 
+          onPress={() => {
+            Keyboard.dismiss();
+            props.navigation.navigate("ChooseLanguage", {target: "to"});
+          }} 
           style={styles.languageChoiceWrapper}
         >
           <Text style={{...styles.languageChoice, textAlign: "right"}}>
