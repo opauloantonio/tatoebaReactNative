@@ -42,7 +42,7 @@ const SentenceContainer = props => {
       {props.sentence.translations.length > 5 &&
         <Button mode="outlined" onPress={() => setExpanded(!expanded)} style={styles.button}>
           <Text>
-            {expanded ? "SHOW LESS TRANSLATIONS" : "SHOW ALL TRANSLATIONS"}
+            {expanded ? "SHOW LESS TRANSLATIONS" : `SHOW ALL TRANSLATIONS (${props.sentence.translations.length})`}
           </Text> 
         </Button>
       }
