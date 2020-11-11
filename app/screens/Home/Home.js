@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { Button, Searchbar, Text, Divider } from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import languages from '../../assets/languages';
 
 const Home = props => {
   const [searchText, setSearchText] = useState("");
@@ -21,6 +23,21 @@ const Home = props => {
     props.navigation.navigate("SearchResults", { from, to, text: searchText });
   }
 
+  const swapLanguages = () => {
+    const [nFrom, nTo] = [to, from];
+
+    setFrom(nFrom);
+    setTo(nTo);
+  }
+
+  useEffect(() => {
+    if (props.route.params?.target === "from") {
+      setFrom(props.route.params.language);
+    } else if (props.route.params?.target === "to") {
+      setTo(props.route.params.language);
+    }
+  }, [props.route.params])
+
   return(
     <View style={{flex: 1, marginHorizontal: 10,}}>
       <View style={styles.container}>
@@ -33,19 +50,29 @@ const Home = props => {
       </View>
 
       <View style={{...styles.container, flexDirection: "row"}}>
-        <Text style={styles.languageChoices}>
-          Any Language
-        </Text>
+        <TouchableOpacity 
+          onPress={() => props.navigation.navigate("ChooseLanguage", {target: "from"})} 
+          style={styles.languageChoiceWrapper}
+        >
+          <Text style={styles.languageChoice}>
+            {from === "und" ? "Any Language" : languages[from].name}
+          </Text>
+        </TouchableOpacity>
         
-        <Text style={{
-          paddingHorizontal: 10
-        }}>
-          <Icon name="compare-arrows" size={25} color="#4caf50" />
-        </Text>
+        <TouchableOpacity onPress={swapLanguages}>
+          <Text style={{ paddingHorizontal: 10 }}>
+            <Icon name="compare-arrows" size={25} color="#4caf50" />
+          </Text>
+        </TouchableOpacity>
         
-        <Text style={{...styles.languageChoices, textAlign: "right"}}>
-          Any Language
-        </Text>
+        <TouchableOpacity 
+          onPress={() => props.navigation.navigate("ChooseLanguage", {target: "to"})} 
+          style={styles.languageChoiceWrapper}
+        >
+          <Text style={{...styles.languageChoice, textAlign: "right"}}>
+            {to === "und" ? "Any Language" : languages[to].name}
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.container}>
@@ -55,8 +82,6 @@ const Home = props => {
       </View>
 
       <Divider />
-
-      
     </View>
   );
 }
@@ -65,11 +90,13 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 20,
   },
-  languageChoices: {
+  languageChoice: {
     color: "#4caf50",
     fontSize: 20,
-    flex: 1,
   },
+  languageChoiceWrapper: {
+    flex: 1,
+  }
 });
 
 export default Home;
