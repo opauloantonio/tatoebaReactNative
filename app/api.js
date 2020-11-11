@@ -1,4 +1,4 @@
-//const baseUrl = "https://www.tatoeba-scraper.herokauapp.com/";
+//const baseUrl = "https://tatoeba-scraper.herokuapp.com/";
 
 const baseUrl = "http://192.168.18.4:8000/";
 
