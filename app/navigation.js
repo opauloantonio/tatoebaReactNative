@@ -13,11 +13,28 @@ import SearchResults from './screens/SearchResults';
 
 const HomeStack = createStackNavigator();
 const AboutStack = createStackNavigator();
+const BookmarksStack = createStackNavigator();
+const HistoryStack = createStackNavigator();
+
+const defaultStackScreenOptions = {
+  headerStyle: {
+    backgroundColor: "#4caf50",
+  },
+  headerTintColor: "white"
+};
 
 function HomeTab() {
   return(
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={Home} />
+    <HomeStack.Navigator
+      screenOptions={defaultStackScreenOptions}
+    >
+      <HomeStack.Screen 
+        name="Home" component={Home} 
+        options={{
+          headerTitle: "Tatoeba",
+        }} 
+      />
+
       <HomeStack.Screen name="SearchResults" component={SearchResults} />
     </HomeStack.Navigator>
   )
@@ -25,7 +42,9 @@ function HomeTab() {
 
 function AboutTab() {
   return(
-    <AboutStack.Navigator>
+    <AboutStack.Navigator
+      screenOptions={defaultStackScreenOptions}
+    >
       <AboutStack.Screen name="About" component={About} />
     </AboutStack.Navigator>
   );
@@ -33,17 +52,21 @@ function AboutTab() {
 
 function HistoryTab() {
   return(
-    <AboutStack.Navigator>
+    <HistoryStack.Navigator
+      screenOptions={defaultStackScreenOptions}
+    >
       <AboutStack.Screen name="History" component={History} />
-    </AboutStack.Navigator>
+    </HistoryStack.Navigator>
   );
 }
 
 function BookmarksTab() {
   return(
-    <AboutStack.Navigator>
+    <BookmarksStack.Navigator
+      screenOptions={defaultStackScreenOptions}
+    >
       <AboutStack.Screen name="Bookmarks" component={Bookmarks} />
-    </AboutStack.Navigator>
+    </BookmarksStack.Navigator>
   );
 }
 
@@ -68,7 +91,7 @@ function Tabs() {
         name="Home" 
         component={HomeTab} 
         options={{
-          tabBarIcon: ({color}) => <Icon size={25} color={color} name="home" />
+          tabBarIcon: ({color}) => <Icon size={25} color={color} name="home" />,
         }}
       />
 
