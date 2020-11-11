@@ -13,6 +13,7 @@ import api from '../../api';
 const SearchResults = props => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [loadingMore, setLoadingMore] = useState(true);
 
   const [data, setData] = useState({
     numberOfResults: "",
@@ -24,18 +25,32 @@ const SearchResults = props => {
   const fetchSentences = () => {
     const {from, to, text} = props.route.params;
 
+    if (page === 1) {
+      setLoading(true);
+      setLoadingMore(false);
+    } else {
+      setLoadingMore(true);
+    }
+
+    setError(false);
+
     axios.post(
       api.search, 
       { from, to, text, page: page.toString() },
       { 'Content-Type': 'application/json', }
     ).then(res => {
-      setData(res.data);
+      setData({
+        numberOfResults: res.data.numberOfResults,
+        sentences: [...data.sentences, ...res.data.sentences]
+      });
       setError(false);
       setLoading(false);
+      setLoadingMore(false);
       setPage(page + 1)
     }).catch((e) => {
       setError(true);
       setLoading(false);
+      setLoadingMore(false);
       console.log(e)
     });
   }
@@ -68,7 +83,18 @@ const SearchResults = props => {
           renderItem={({ item }) => <SentenceContainer sentence={item} />}
           keyExtractor={(item) => item.id.toString()}
           data={data.sentences}
+          onEndReached={() => fetchSentences()}
+          onEndReachedThreshold={0.1}
         />
+
+        {loadingMore &&
+        <View style={{
+          paddingTop: 10,
+          paddingBottom: 20,
+        }}>
+          <ActivityIndicator animating={true} />
+        </View>
+        }
       </View>
     );
   }
