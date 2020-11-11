@@ -39,11 +39,13 @@ const SentenceContainer = props => {
         keyExtractor={(item) => item.id.toString()}
       />
 
-      <Button mode="outlined" onPress={() => setExpanded(!expanded)} style={styles.button}>
-        <Text>
-          {expanded ? "SHOW LESS TRANSLATIONS" : "SHOW ALL TRANSLATIONS"}
-        </Text> 
-      </Button>
+      {props.sentence.translations.length > 5 &&
+        <Button mode="outlined" onPress={() => setExpanded(!expanded)} style={styles.button}>
+          <Text>
+            {expanded ? "SHOW LESS TRANSLATIONS" : "SHOW ALL TRANSLATIONS"}
+          </Text> 
+        </Button>
+      }
     </View>
   );
 }
