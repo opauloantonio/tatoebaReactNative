@@ -56,11 +56,12 @@ const SearchResults = props => {
       setError(false);
       setLoading(false);
       setLoadingMore(false);
-      setPage(page + 1);
 
-      if (res.data.sentences.length === 0) {
+      if (res.data.sentences.length === 0 || (page === 1 && res.data.sentences.length <= 10)) {
         setEndOfSearch(true);
       }
+
+      setPage(page + 1);
     }).catch((e) => {
       setError(true);
       setLoading(false);
