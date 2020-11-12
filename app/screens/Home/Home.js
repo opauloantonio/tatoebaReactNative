@@ -84,7 +84,7 @@ const Home = props => {
 
       <View style={styles.container}>
         <Button mode="contained" onPress={handleSubmitSearch}>
-          <Text style={{ color: "white" }}>SEARCH</Text>
+          <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>SEARCH</Text>
         </Button>
       </View>
 
