@@ -57,7 +57,7 @@ const SearchResults = props => {
       setLoading(false);
       setLoadingMore(false);
 
-      if (res.data.sentences.length === 0 || (page === 1 && res.data.sentences.length <= 9)) {
+      if (res.data.sentences.length <= 9) {
         setEndOfSearch(true);
       }
 
