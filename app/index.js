@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Tabs from './navigation';
 
@@ -14,6 +14,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './store';
 
+import SplashScreen from 'react-native-splash-screen';
+
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -26,18 +28,24 @@ const LoadingScreen = () => (
   <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
     <ActivityIndicator animating={true} color="#4caf50"/>
   </View>
-)
-
-const App = () => (
-  <ReduxProvider store={store}>
-    <PersistGate loading={<LoadingScreen />} persistor={persistor}>
-      <PaperProvider theme={theme}>
-        <NavigationContainer>
-          <Tabs />
-        </NavigationContainer>
-      </PaperProvider>
-    </PersistGate>
-  </ReduxProvider>
 );
+
+const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  })
+
+  return(
+    <ReduxProvider store={store}>
+      <PersistGate loading={<LoadingScreen />} persistor={persistor}>
+        <PaperProvider theme={theme}>
+          <NavigationContainer>
+            <Tabs />
+          </NavigationContainer>
+        </PaperProvider>
+      </PersistGate>
+    </ReduxProvider>
+  );
+}
 
 export default App;
