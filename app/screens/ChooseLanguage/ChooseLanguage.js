@@ -10,6 +10,10 @@ import { requirePngFlag } from '../../assets';
 
 import languages from '../../assets/languages';
 
+import { connect } from 'react-redux';
+
+import { toggleFavorite } from '../../actions/favoriteLanguagesActions';
+
 const ChooseLanguage = props => {
   const [search, setSearch] = useState("");
   const [languageList, setLanguageList] = useState([]);
@@ -18,7 +22,22 @@ const ChooseLanguage = props => {
 
   useEffect(() => {
     if (search.length === 0) {
-      setLanguageList(Object.keys(languages).map(k => ({name: languages[k].name, code: k})));
+      if (props.favorites.favorites.length > 0) {
+        let favorites = [];
+        let others = [];
+
+        Object.keys(languages).forEach(k => {
+          if (props.favorites.favorites.includes(k)) {
+            favorites.push({name: languages[k].name, code: k})
+          } else {
+            others.push({name: languages[k].name, code: k})
+          }
+        });
+
+        setLanguageList([...favorites, ...others]);
+      } else {
+        setLanguageList(Object.keys(languages).map(k => ({name: languages[k].name, code: k})));
+      }
     } else {
       setLanguageList(
         Object.keys(languages).map(
@@ -26,7 +45,7 @@ const ChooseLanguage = props => {
         ).filter(l => l.name.toLowerCase().includes(search.toLowerCase()))
       );
     }
-  }, [search])
+  }, [search, props.favorites.favorites]);
 
   return(
     <View style={styles.container}>
@@ -63,6 +82,16 @@ const ChooseLanguage = props => {
             <Image source={requirePngFlag(item.code)} style={styles.flag} />
 
             <Text style={styles.languageName}>{item.name}</Text>
+
+            <TouchableOpacity onPress={() => {
+              props.toggleFavorite(item.code)
+            }}>
+              <Icon 
+                name="favorite" size={22}  
+                color={props.favorites.favorites.includes(item.code) ? "red" : "grey"}
+                style={{ paddingRight: 10 }}
+              />
+            </TouchableOpacity>
           </TouchableOpacity> 
         )}
         keyExtractor={(item, index) => index.toString()}
@@ -87,7 +116,16 @@ const styles = StyleSheet.create({
   },
   languageName: {
     marginLeft: 20,
+    flex: 1,
   }
-})
+});
 
-export default ChooseLanguage;
+const mapStateToProps = state => ({
+  favorites: state.favoriteLanguagesReducer,
+});
+
+const mapDispatchToProps = dispatch => ({
+  toggleFavorite: code => dispatch(toggleFavorite(code)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseLanguage);
