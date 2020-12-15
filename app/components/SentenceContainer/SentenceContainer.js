@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 
-import { View, FlatList, Text, StyleSheet } from 'react-native';
+import { View, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 import { Button, Divider } from 'react-native-paper';
 
 import Sentence from '../Sentence';
 
 const SentenceContainer = props => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(props.expanded || false);
 
   return(
     <View style={styles.container}>
       <View style={styles.sentence}>
-        <Sentence 
-          id={props.sentence.id}
-          text={props.sentence.text} 
-          lang={props.sentence.lang}
-        />
+        <TouchableOpacity onPress={() => props.navigation.navigate('SentenceDetails', {id: props.sentence.id})}>
+          <Sentence 
+            id={props.sentence.id}
+            text={props.sentence.text} 
+            lang={props.sentence.lang}
+          />
+        </TouchableOpacity>
       </View>
 
       <View style={{marginBottom: 10}}>
@@ -27,13 +29,15 @@ const SentenceContainer = props => {
         data={expanded ? props.sentence.translations : props.sentence.translations.slice(0, 5)}
         renderItem={({ item }) => (
           <View style={styles.sentence}>
-            <Sentence 
-              id={item.id}
-              text={item.text} 
-              lang={item.lang}
-              direct={item.direct}
-              showDirect={true}
-            />
+            <TouchableOpacity onPress={() => props.navigation.navigate('SentenceDetails', {id: item.id})}>
+              <Sentence 
+                id={item.id}
+                text={item.text} 
+                lang={item.lang}
+                direct={item.direct}
+                showDirect={true}
+              />
+            </TouchableOpacity>
           </View>
         )}
         keyExtractor={(item) => item.id.toString()}
