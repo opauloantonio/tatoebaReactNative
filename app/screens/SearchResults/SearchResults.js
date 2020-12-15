@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import { View, Text, FlatList } from 'react-native';
 
-import { ActivityIndicator, Button } from 'react-native-paper';
+import { ActivityIndicator } from 'react-native-paper';
 
 import SentenceContainer from '../../components/SentenceContainer';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Error from '../../components/Error';
 
 import axios from 'axios';
 
@@ -83,19 +83,10 @@ const SearchResults = props => {
     );
   } else if (error) {
     return(
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Icon name="warning" color="#8B0000" size={100} />
-        
-        <Text style={{marginVertical: 20}}>
-          There was an error while trying to fetch your search results
-        </Text>
-        
-        <Button mode="contained" onPress={fetchSentences}>
-          <Text style={{color: "white"}}>
-            RETRY
-          </Text>
-        </Button>
-      </View>
+      <Error 
+        message="There was an error while trying to fetch your search results"
+        retry={fetchSentences}
+      />
     );
   } else {
     return(
@@ -105,7 +96,7 @@ const SearchResults = props => {
         </Text>
 
         <FlatList 
-          renderItem={({ item }) => <SentenceContainer sentence={item} />}
+          renderItem={({ item }) => <SentenceContainer sentence={item} navigation={props.navigation} />}
           keyExtractor={(item) => item.id.toString()}
           data={data.sentences}
           onEndReached={fetchSentences}
