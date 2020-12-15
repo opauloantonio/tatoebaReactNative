@@ -11,6 +11,7 @@ import History from './screens/History';
 import Bookmarks from './screens/Bookmarks';
 import SearchResults from './screens/SearchResults';
 import ChooseLanguage from './screens/ChooseLanguage';
+import SentenceDetails from './screens/SentenceDetails';
 
 const HomeStack = createStackNavigator();
 const AboutStack = createStackNavigator();
@@ -40,6 +41,13 @@ function HomeTab() {
         name="SearchResults" component={SearchResults} 
         options={{
           headerTitle: "Results",
+        }}
+      />
+
+      <HomeStack.Screen 
+        name="SentenceDetails" component={SentenceDetails} 
+        options={{
+          headerTitle: "Sentence Details",
         }}
       />
 
