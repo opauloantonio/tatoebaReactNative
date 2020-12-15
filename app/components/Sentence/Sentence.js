@@ -10,7 +10,7 @@ const Sentence = props => (
   <View style={styles.sentence}>
     <Image source={requirePngFlag(props.lang)} style={styles.flag} />
 
-    <Text style={styles.text}>
+    <Text style={styles.text} selectable={true}>
       {props.text} 
     </Text>
 
