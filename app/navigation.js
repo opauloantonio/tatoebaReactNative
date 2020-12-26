@@ -39,16 +39,16 @@ function HomeTab() {
 
       <HomeStack.Screen 
         name="SearchResults" component={SearchResults} 
-        options={{
-          headerTitle: "Results",
-        }}
+        options={({ route }) => ({ 
+          title: `Results for "${route.params.text}"`
+        })}
       />
 
       <HomeStack.Screen 
         name="SentenceDetails" component={SentenceDetails} 
-        options={{
-          headerTitle: "Sentence Details",
-        }}
+        options={({ route }) => ({ 
+          title: `Sentence #${route.params.id}`
+        })}
       />
 
       <HomeStack.Screen 
