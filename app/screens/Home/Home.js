@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { connect } from 'react-redux';
+
 import { View, StyleSheet, TouchableOpacity, Keyboard } from 'react-native';
 
 import { Button, Searchbar, Text, Divider } from 'react-native-paper';
@@ -7,6 +9,8 @@ import { Button, Searchbar, Text, Divider } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import languages from '../../assets/languages';
+
+import { addEntry } from '../../actions/historyActions';
 
 const Home = props => {
   const [searchText, setSearchText] = useState("");
@@ -19,6 +23,8 @@ const Home = props => {
     if (searchText.length === 0) {
       return;
     }
+
+    props.addHistoryEntry({ from, to, text: searchText });
 
     Keyboard.dismiss();
     props.navigation.navigate("SearchResults", { from, to, text: searchText });
@@ -106,4 +112,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+const mapDispatchToProps = dispatch => ({
+  addHistoryEntry: entry => dispatch(addEntry(entry)),
+});
+
+export default connect(null, mapDispatchToProps)(Home);
