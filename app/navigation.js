@@ -22,7 +22,13 @@ const defaultStackScreenOptions = {
   headerStyle: {
     backgroundColor: "#4caf50",
   },
-  headerTintColor: "white"
+  headerTintColor: "white",
+
+  // This is to fix an issue with the header having too much padding on the first render of every screen.
+  // There are many issues about this bug in the Github page of react-navigation
+  // Apparently, this only fixes the issue for Android but not for iOS.
+  // I'm not developing for iOS at the moment anyways...
+  headerStatusBarHeight: 0,
 };
 
 function HomeTab() {
