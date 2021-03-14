@@ -24,7 +24,7 @@ const History = props => {
   } else {
     return(
       <View style={styles.container}>
-        <Text style={{textAlign: 'center'}}>
+        <Text style={{textAlign: 'center', marginBottom: 10}}>
           {props.searchHistory.history.length} {props.searchHistory.history.length === 1 ? "entry" : "entries"}
         </Text>
 
@@ -64,7 +64,7 @@ const History = props => {
           keyExtractor={(item, index) => index.toString()}
         />
 
-        <View style={styles.buttonContainer}>
+        <View>
           <Button mode="contained" onPress={() => {
             Alert.alert(
               "Clear history",
@@ -101,9 +101,6 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderRadius: 8,
     marginVertical: 10,
-  }, 
-  buttonContainer: {
-    
   },
   languagesRow: {
     flexDirection: "row",
