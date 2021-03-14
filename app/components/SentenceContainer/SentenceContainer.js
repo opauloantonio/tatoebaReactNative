@@ -17,6 +17,7 @@ const SentenceContainer = props => {
             id={props.sentence.id}
             text={props.sentence.text} 
             lang={props.sentence.lang}
+            showBookmark={true}
           />
         </TouchableOpacity>
       </View>
