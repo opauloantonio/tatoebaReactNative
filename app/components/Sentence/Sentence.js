@@ -1,24 +1,48 @@
 import React from 'react';
 
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { requirePngFlag } from '../../assets';
 
-const Sentence = props => (
-  <View style={styles.sentence}>
-    <Image source={requirePngFlag(props.lang)} style={styles.flag} />
+import { connect } from 'react-redux';
 
-    <Text style={styles.text} selectable={true}>
-      {props.text} 
-    </Text>
+import { addBookmark, removeBookmark } from '../../actions/bookmarksActions';
 
-    {props.showDirect &&
-      <Icon name="check-circle" size={15} color={props.direct ? "green" : "grey"} />
-    }
-  </View>
-);
+const Sentence = props => {
+  const bookmarked = props.bookmarks.bookmarks.find(b => b.id === props.id);
+
+  return(
+    <View style={styles.sentence}>
+      <Image source={requirePngFlag(props.lang)} style={styles.flag} />
+
+      <Text style={styles.text} selectable={true}>
+        {props.text}
+      </Text>
+
+      {props.showDirect &&
+        <Icon name="check-circle" size={15} color={props.direct ? "green" : "grey"} style={{paddingRight: 2}} />
+      }
+
+      {props.showBookmark &&
+        <TouchableOpacity onPress={() => {
+          if (bookmarked) {
+            props.removeBookmark(props.id);
+          } else {
+            props.addBookmark({
+              id: props.id,
+              text: props.text,
+              lang: props.lang
+            });
+          }
+        }}>
+          <Icon name={`bookmark`} size={20} color={bookmarked ? "green" : "grey"} />
+        </TouchableOpacity>
+      }
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   sentence: {
@@ -30,8 +54,18 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   text: {
-    flex: 1
+    flex: 1,
+    paddingRight: 15,
   }
-})
+});
 
-export default Sentence;
+const mapStateToProps = state => ({
+  bookmarks: state.bookmarksReducer,
+});
+
+const mapDispatchToProps = dispatch => ({
+  addBookmark: sentence => dispatch(addBookmark(sentence)),
+  removeBookmark: id => dispatch(removeBookmark(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sentence);
