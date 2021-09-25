@@ -1,28 +1,24 @@
 import React, { useEffect } from 'react';
 
+import { connect } from 'react-redux';
+
 import Tabs from './navigation';
 
-import { View } from 'react-native';
+import { View, useColorScheme } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 
-import { DefaultTheme, ActivityIndicator, Provider as PaperProvider } from 'react-native-paper';
-
-import { Provider as ReduxProvider } from 'react-redux';
+import { ActivityIndicator, Provider as PaperProvider } from 'react-native-paper';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { store, persistor } from './store';
+import { persistor } from './store';
 
 import SplashScreen from 'react-native-splash-screen';
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#4caf50',
-  },
-};
+import { darkTheme, lightTheme } from './theme';
+
+const themes = { dark: darkTheme, light: lightTheme };
 
 const LoadingScreen = () => (
   <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -30,22 +26,28 @@ const LoadingScreen = () => (
   </View>
 );
 
-const App = () => {
+const App = props => {
   useEffect(() => {
     SplashScreen.hide();
-  })
+  });
+
+  const systemTheme = useColorScheme();
+
+  const theme = props.settings.theme === "system" ? themes[systemTheme] : themes[props.settings.theme];
 
   return(
-    <ReduxProvider store={store}>
-      <PersistGate loading={<LoadingScreen />} persistor={persistor}>
-        <PaperProvider theme={theme}>
-          <NavigationContainer>
-            <Tabs />
-          </NavigationContainer>
-        </PaperProvider>
-      </PersistGate>
-    </ReduxProvider>
+    <PersistGate loading={<LoadingScreen />} persistor={persistor}>
+      <PaperProvider theme={theme}>
+        <NavigationContainer theme={theme}>
+          <Tabs theme={theme} />
+        </NavigationContainer>
+      </PaperProvider>
+    </PersistGate>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  settings: state.settingsReducer,
+});
+
+export default connect(mapStateToProps, null)(App);
