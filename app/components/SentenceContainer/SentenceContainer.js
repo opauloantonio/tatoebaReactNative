@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { View, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Button, Divider } from 'react-native-paper';
+import { Button, Divider, Text } from 'react-native-paper';
 
 import Sentence from '../Sentence';
 
@@ -58,7 +58,6 @@ const SentenceContainer = props => {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 10,
-    backgroundColor: "white",
     padding: 10,
     borderRadius: 9
   },

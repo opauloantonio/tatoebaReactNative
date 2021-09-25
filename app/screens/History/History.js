@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { 
-  View, Text, FlatList, StyleSheet, Alert, Image, TouchableOpacity
+  View, FlatList, StyleSheet, Alert, Image, TouchableOpacity
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { Button } from 'react-native-paper';
+import { Button, Text } from 'react-native-paper';
 
 import { connect } from 'react-redux';
 
@@ -39,14 +39,14 @@ const History = props => {
               })}>
                 <View style={styles.languagesRow}>
                   {item.from === "und" ? 
-                    <Icon name="language" size={30} color="blue" /> :
+                    <Icon name="language" size={30} /> :
                     <Image source={requirePngFlag(item.from)} />
                   }
 
                   <Icon  name="arrow-right" size={30} color="#4caf50" />
 
                   {item.to === "und" ? 
-                    <Icon name="language" size={30} color="blue" /> :
+                    <Icon name="language" size={30} /> :
                     <Image source={requirePngFlag(item.to)} />
                   }
                   

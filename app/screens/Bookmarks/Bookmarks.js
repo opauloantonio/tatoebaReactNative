@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { 
-  View, Text, FlatList, StyleSheet, Alert, TouchableOpacity
+  View, FlatList, StyleSheet, Alert, TouchableOpacity
 } from 'react-native';
 
-import { Button } from 'react-native-paper';
+import { Button, Text } from 'react-native-paper';
 
 import Sentence from '../../components/Sentence';
 

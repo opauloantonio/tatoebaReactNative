@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import { View, Text, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 
-import { ActivityIndicator } from 'react-native-paper';
+import { ActivityIndicator, Text } from 'react-native-paper';
 
 import SentenceContainer from '../../components/SentenceContainer';
 

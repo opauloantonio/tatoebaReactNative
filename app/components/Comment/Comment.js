@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
-import { Divider } from 'react-native-paper';
+import { Divider, Text } from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
+import { View} from 'react-native';
 
-import { Button } from 'react-native-paper';
+import { Button, Text } from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
