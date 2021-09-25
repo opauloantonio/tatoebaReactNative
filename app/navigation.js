@@ -99,10 +99,12 @@ function BookmarksTab() {
 
 const BottomTab = createMaterialBottomTabNavigator();
 
-function Tabs() {
+function Tabs(props) {
   return(
     <BottomTab.Navigator
-      barStyle={{backgroundColor: "white"}}
+      barStyle={{
+        ...(props.theme.name === "light" && {backgroundColor: "white"}),
+      }}
       activeColor="#4caf50"
       initialRouteName="Home"
     >
