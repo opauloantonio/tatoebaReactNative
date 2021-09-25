@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="500"
+   viewBox="0 0 270.93334 132.29167"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="tatoeba graphic.svg"
+   inkscape:export-filename="C:\Users\anjhe\tatoebaGraphic.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs2">
+    <radialGradient
+       gradientTransform="matrix(0.26458333,0,0,0.26458333,141.23756,213.06213)"
+       gradientUnits="userSpaceOnUse"
+       r="8.1999998"
+       fy="37.36"
+       fx="29.72"
+       id="a"
+       cy="37.36"
+       cx="29.72">
+      <stop
+         offset="0.1"
+         stop-color="#008000"
+         id="stop5725" />
+      <stop
+         offset="0.4"
+         stop-color="#CDEFAC"
+         id="stop5727" />
+    </radialGradient>
+    <radialGradient
+       id="b"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#B3E87E"
+         id="stop5730" />
+      <stop
+         offset="1"
+         stop-color="#ABE66F"
+         id="stop5732" />
+    </radialGradient>
+    <radialGradient
+       id="c"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#4B8616"
+         id="stop5735" />
+      <stop
+         offset="1"
+         stop-color="#3F7513"
+         id="stop5737" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6236"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#B3E87E"
+         id="stop6232" />
+      <stop
+         offset="1"
+         stop-color="#ABE66F"
+         id="stop6234" />
+    </radialGradient>
+    <radialGradient
+       id="d"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#80D832"
+         id="stop5740" />
+      <stop
+         offset="1"
+         stop-color="#74D325"
+         id="stop5742" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6245"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#80D832"
+         id="stop6241" />
+      <stop
+         offset="1"
+         stop-color="#74D325"
+         id="stop6243" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6251"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#B3E87E"
+         id="stop6247" />
+      <stop
+         offset="1"
+         stop-color="#ABE66F"
+         id="stop6249" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6257"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#B3E87E"
+         id="stop6253" />
+      <stop
+         offset="1"
+         stop-color="#ABE66F"
+         id="stop6255" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6263"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#80D832"
+         id="stop6259" />
+      <stop
+         offset="1"
+         stop-color="#74D325"
+         id="stop6261" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6269"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#80D832"
+         id="stop6265" />
+      <stop
+         offset="1"
+         stop-color="#74D325"
+         id="stop6267" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6275"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#B3E87E"
+         id="stop6271" />
+      <stop
+         offset="1"
+         stop-color="#ABE66F"
+         id="stop6273" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6281"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#4B8616"
+         id="stop6277" />
+      <stop
+         offset="1"
+         stop-color="#3F7513"
+         id="stop6279" />
+    </radialGradient>
+    <radialGradient
+       id="radialGradient6287"
+       cy="0.40000001"
+       cx="0.60000002">
+      <stop
+         offset="0"
+         stop-color="#80D832"
+         id="stop6283" />
+      <stop
+         offset="1"
+         stop-color="#74D325"
+         id="stop6285" />
+    </radialGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.73851712"
+     inkscape:cx="396.85039"
+     inkscape:cy="290.44689"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="2560"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-164.70832)">
+    <rect
+       style="opacity:0.98999999;fill:#4caf50;fill-opacity:1;stroke:none;stroke-width:1.85802674;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6089"
+       width="270.93332"
+       height="132.29167"
+       x="7.1207683e-06"
+       y="164.70831" />
+    <g
+       id="g6471"
+       style="fill:#ffffff"
+       transform="matrix(4.9413495,0,0,4.9413495,-609.83071,-868.50362)">
+      <circle
+         id="circle5773"
+         r="2.1695833"
+         cy="223.38087"
+         cx="149.96881"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5775"
+         r="1.984375"
+         cy="218.77711"
+         cx="147.0584"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5777"
+         r="1.7727083"
+         cy="224.04233"
+         cx="144.49194"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5779"
+         r="1.1112499"
+         cy="227.66711"
+         cx="143.03673"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5781"
+         r="1.42875"
+         cy="228.80482"
+         cx="146.18527"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5783"
+         r="1.5345833"
+         cy="229.78378"
+         cx="149.88943"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5785"
+         r="1.0583333"
+         cy="227.50836"
+         cx="152.29715"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5787"
+         r="1.2435416"
+         cy="214.9142"
+         cx="146.37048"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5789"
+         r="1.2700001"
+         cy="214.9142"
+         cx="150.68318"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5791"
+         r="1.7991667"
+         cy="221.8992"
+         cx="157.2184"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5793"
+         r="1.190625"
+         cy="217.87753"
+         cx="158.54132"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5795"
+         r="2.6458333"
+         cy="228.01108"
+         cx="157.03319"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+      <circle
+         id="circle5797"
+         r="2.5664582"
+         cy="218.43317"
+         cx="153.67297"
+         style="fill:#ffffff;stroke-width:0.26458332" />
+    </g>
+  </g>
+</svg>
