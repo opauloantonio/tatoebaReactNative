@@ -19,6 +19,8 @@ import useTheme from '../../utils/useTheme';
 const History = props => {
   const theme = useTheme();
 
+  const anyLanguageIcon = <Icon name="language" size={30} color="#757575" />;
+
   if (props.searchHistory.history.length === 0) {
     return(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -42,17 +44,11 @@ const History = props => {
                 text: item.text,
               })}>
                 <View style={styles.languagesRow}>
-                  {item.from === "und" ? 
-                    <Icon name="language" size={30} /> :
-                    <Image source={requirePngFlag(item.from)} />
-                  }
+                  {item.from === "und" ? anyLanguageIcon : <Image source={requirePngFlag(item.from)} /> }
 
                   <Icon  name="arrow-right" size={30} color="#4caf50" />
 
-                  {item.to === "und" ? 
-                    <Icon name="language" size={30} /> :
-                    <Image source={requirePngFlag(item.to)} />
-                  }
+                  {item.to === "und" ? anyLanguageIcon : <Image source={requirePngFlag(item.to)} /> }
                   
                   <View style={{flex: 1, alignItems: "flex-end"}}>
                     <TouchableOpacity onPress={() => props.removeEntry(item.id)}>

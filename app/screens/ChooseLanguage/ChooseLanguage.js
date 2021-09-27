@@ -64,7 +64,7 @@ const ChooseLanguage = props => {
             target: props.route.params.target, language: "und"
           })}
         >
-          <Icon name="language" size={30} color="blue" />
+          <Icon name="language" size={30} color="#757575" />
 
           <Text style={styles.languageName}>Any Language</Text>
         </TouchableOpacity>
