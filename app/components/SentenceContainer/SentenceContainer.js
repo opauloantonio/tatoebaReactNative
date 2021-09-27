@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { View, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
-import { Button, Divider, Text } from 'react-native-paper';
+import { Button, Divider } from 'react-native-paper';
 
 import Sentence from '../Sentence';
 
@@ -49,10 +49,8 @@ const SentenceContainer = props => {
       />
 
       {props.sentence.translations.length > 5 &&
-        <Button mode="outlined" onPress={() => setExpanded(!expanded)} style={styles.button}>
-          <Text>
-            {expanded ? "SHOW LESS TRANSLATIONS" : `SHOW ALL TRANSLATIONS (${props.sentence.translations.length})`}
-          </Text> 
+        <Button mode="outlined" style={styles.button} onPress={() => setExpanded(!expanded)}>
+          {expanded ? "SHOW LESS TRANSLATIONS" : `SHOW ALL TRANSLATIONS (${props.sentence.translations.length})`}
         </Button>
       }
     </View>
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   button: {
-    marginTop: 20
+    marginTop: 20,
   }
 })
 
