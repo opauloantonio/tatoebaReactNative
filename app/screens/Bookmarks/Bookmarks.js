@@ -17,7 +17,10 @@ import useTheme from '../../utils/useTheme';
 const Bookmarks = props => {
   const theme = useTheme();
 
-  if (props.bookmarks.bookmarks.length === 0) {
+  // https://stackoverflow.com/a/30610528/5572092
+  const bookmarks = props.bookmarks.bookmarks.slice().reverse();
+
+  if (bookmarks.length === 0) {
     return(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Your bookmarks will appear here.</Text>
@@ -27,11 +30,11 @@ const Bookmarks = props => {
     return(
       <View style={styles.container}>
         <Text style={{textAlign: 'center', marginBottom: 10}}>
-          {props.bookmarks.bookmarks.length} {props.bookmarks.bookmarks.length === 1 ? "bookmark" : "bookmarks"}
+          {bookmarks.length} {bookmarks.length === 1 ? "bookmark" : "bookmarks"}
         </Text>
 
         <FlatList 
-          data={props.bookmarks.bookmarks}
+          data={bookmarks}
           renderItem={({item}) => (
             <TouchableOpacity onPress={() => props.navigation.navigate('SentenceDetails', {id: item.id})}>
               <View style={{...styles.sentence, backgroundColor: theme === "dark" ? "#212121" : "white"}}>

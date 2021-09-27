@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { 
-  View, FlatList, StyleSheet, Alert, Image, TouchableOpacity
-} from 'react-native';
+import { View, FlatList, StyleSheet, Alert, Image, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -21,7 +19,10 @@ const History = props => {
 
   const anyLanguageIcon = <Icon name="language" size={30} color="#757575" />;
 
-  if (props.searchHistory.history.length === 0) {
+  // https://stackoverflow.com/a/30610528/5572092
+  const entries = props.searchHistory.history.slice().reverse();
+
+  if (entries.length === 0) {
     return(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Your search history will appear here.</Text>
@@ -31,11 +32,11 @@ const History = props => {
     return(
       <View style={styles.container}>
         <Text style={{textAlign: 'center', marginBottom: 10}}>
-          {props.searchHistory.history.length} {props.searchHistory.history.length === 1 ? "entry" : "entries"}
+          {entries.length} {entries.length === 1 ? "entry" : "entries"}
         </Text>
 
         <FlatList 
-          data={props.searchHistory.history}
+          data={entries}
           renderItem={({ item }) => (
             <View style={{...styles.entry, backgroundColor: theme === "dark" ? "#212121" : "white"}}>
               <TouchableOpacity onPress={() => props.navigation.navigate("SearchResults", {
