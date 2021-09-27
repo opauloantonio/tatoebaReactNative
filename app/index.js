@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { connect } from 'react-redux';
-
 import Tabs from './navigation';
 
-import { View, useColorScheme } from 'react-native';
+import { View } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -18,6 +16,8 @@ import SplashScreen from 'react-native-splash-screen';
 
 import { darkTheme, lightTheme } from './theme';
 
+import useTheme from './utils/useTheme';
+
 const themes = { dark: darkTheme, light: lightTheme };
 
 const LoadingScreen = () => (
@@ -26,14 +26,12 @@ const LoadingScreen = () => (
   </View>
 );
 
-const App = props => {
+const App = () => {
   useEffect(() => {
     SplashScreen.hide();
   });
 
-  const systemTheme = useColorScheme();
-
-  const theme = props.settings.theme === "system" ? themes[systemTheme] : themes[props.settings.theme];
+  const theme = themes[useTheme()];
 
   return(
     <PersistGate loading={<LoadingScreen />} persistor={persistor}>
@@ -46,8 +44,4 @@ const App = props => {
   );
 }
 
-const mapStateToProps = state => ({
-  settings: state.settingsReducer,
-});
-
-export default connect(mapStateToProps, null)(App);
+export default App;
