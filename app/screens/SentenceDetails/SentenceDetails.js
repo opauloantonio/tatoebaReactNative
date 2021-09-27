@@ -11,12 +11,15 @@ import Comment from '../../components/Comment';
 import axios from 'axios';
 
 import api from '../../api';
+import useTheme from '../../utils/useTheme';
 
 const SentenceDetails = props => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const [data, setData] = useState({});
+
+  const theme = useTheme();
 
   const loadSentence = () => {
     setLoading(true);
@@ -53,7 +56,7 @@ const SentenceDetails = props => {
   } else {
     return(
       <ScrollView style={{flex: 1, marginHorizontal: 10}}>
-        <View style={styles.container}>
+        <View style={{...styles.container, backgroundColor: theme === "dark" ? "#212121" : "white"}}>
           <SentenceContainer 
             sentence={data.sentence} 
             navigation={props.navigation}
@@ -81,7 +84,6 @@ const SentenceDetails = props => {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 10,
-    backgroundColor: "white",
     padding: 10,
     borderRadius: 9
   },

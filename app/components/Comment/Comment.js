@@ -6,24 +6,29 @@ import { Divider, Text } from 'react-native-paper';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const Comment = props => (
-  <View style={styles.container}>
-    <View style={styles.authorContainer}>
-      <Icon name="account-circle" size={20} color="grey" />
-      <Text style={{flex: 1, marginLeft: 10}}>{props.author}</Text>
-    </View>
+import useTheme from '../../utils/useTheme';
 
-    <Divider style={styles.divider} />
+const Comment = props => {
+  const theme = useTheme();
 
-    <View>
-      <Text style={styles.text}>{props.text}</Text>
+  return (
+    <View style={{...styles.container, backgroundColor: theme === "dark" ? "#212121" : "white"}}>
+      <View style={styles.authorContainer}>
+        <Icon name="account-circle" size={20} color="grey" />
+        <Text style={{flex: 1, marginLeft: 10}}>{props.author}</Text>
+      </View>
+
+      <Divider style={styles.divider} />
+
+      <View>
+        <Text style={styles.text}>{props.text}</Text>
+      </View>
     </View>
-  </View>
-);
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white', 
     marginVertical: 10,
     borderRadius: 9, 
     padding: 10, 

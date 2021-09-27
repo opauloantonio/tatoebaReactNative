@@ -12,6 +12,7 @@ import Bookmarks from './screens/Bookmarks';
 import SearchResults from './screens/SearchResults';
 import ChooseLanguage from './screens/ChooseLanguage';
 import SentenceDetails from './screens/SentenceDetails';
+import useTheme from './utils/useTheme';
 
 const HomeStack = createStackNavigator();
 const AboutStack = createStackNavigator();
@@ -99,11 +100,13 @@ function BookmarksTab() {
 
 const BottomTab = createMaterialBottomTabNavigator();
 
-function Tabs(props) {
+function Tabs() {
+  const theme = useTheme();
+
   return(
     <BottomTab.Navigator
       barStyle={{
-        ...(props.theme.name === "light" && {backgroundColor: "white"}),
+        ...(theme === "light" && {backgroundColor: "white"}),
       }}
       activeColor="#4caf50"
       initialRouteName="Home"

@@ -12,7 +12,11 @@ import { connect } from 'react-redux';
 
 import { clearBookmarks } from '../../actions/bookmarksActions';
 
+import useTheme from '../../utils/useTheme';
+
 const Bookmarks = props => {
+  const theme = useTheme();
+
   if (props.bookmarks.bookmarks.length === 0) {
     return(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -30,7 +34,7 @@ const Bookmarks = props => {
           data={props.bookmarks.bookmarks}
           renderItem={({item}) => (
             <TouchableOpacity onPress={() => props.navigation.navigate('SentenceDetails', {id: item.id})}>
-              <View style={styles.sentence}>
+              <View style={{...styles.sentence, backgroundColor: theme === "dark" ? "#212121" : "white"}}>
                 <Sentence 
                   id={item.id}
                   lang={item.lang}
@@ -75,7 +79,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   sentence: {
-    backgroundColor: "white",
     paddingHorizontal: 10,
     paddingVertical: 20,
     borderRadius: 8,

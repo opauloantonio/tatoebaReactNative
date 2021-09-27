@@ -14,7 +14,11 @@ import { removeEntry, clearHistory } from '../../actions/historyActions';
 
 import { requirePngFlag } from '../../assets';
 
+import useTheme from '../../utils/useTheme';
+
 const History = props => {
+  const theme = useTheme();
+
   if (props.searchHistory.history.length === 0) {
     return(
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -31,7 +35,7 @@ const History = props => {
         <FlatList 
           data={props.searchHistory.history}
           renderItem={({ item }) => (
-            <View style={styles.entry}>
+            <View style={{...styles.entry, backgroundColor: theme === "dark" ? "#212121" : "white"}}>
               <TouchableOpacity onPress={() => props.navigation.navigate("SearchResults", {
                 from: item.from,
                 to: item.to,
@@ -96,7 +100,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   entry: {
-    backgroundColor: "white",
     paddingHorizontal: 10,
     paddingVertical: 20,
     borderRadius: 8,
