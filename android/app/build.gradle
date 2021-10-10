@@ -132,8 +132,11 @@ android {
         applicationId "com.tatoebareactnative"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "3.0"
+        
+        // TODO need to increase these everytime we upload to the play store
+        // versionCode must be an integer...
+        versionCode 4
+        versionName "3.1"
     }
     splits {
         abi {
